@@ -1,0 +1,48 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Pattern (by Janosch Oltmanns)</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="src/assets/css/app.css">
+
+</head>
+<body>
+
+<div id="wrapper">
+
+    <header id="header"></header>
+
+    <div id="container">
+        <div id="sidebar">
+
+            <nav id="mainnavigation" class="navigation">
+
+                <?= $this->navigation; ?>
+
+            </nav>
+
+        </div>
+        <div id="main">
+
+            <div class="iframe-info" data-reference="pattern-viewport"></div>
+
+            <div class="iframe-wrapper">
+                <iframe id="pattern-viewport" name="pattern-viewport" src="styleguide.php" frameborder="0"></iframe>
+            </div>
+
+        </div>
+    </div>
+
+    <footer id="footer"></footer>
+
+</div>
+
+<script src="src/assets/js/jquery-1.12.2.min.js"></script>
+<script src="src/assets/js/app.js"></script>
+
+</body>
+</html>

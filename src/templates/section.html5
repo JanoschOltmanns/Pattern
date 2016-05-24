@@ -1,0 +1,4 @@
+<section id="<?= $this->key; ?>" data-source="<?= $this->src; ?>">
+    <h3 class="pattern-headline"><?= $this->name; ?></h3>
+    <?= $this->content; ?>
+</section>

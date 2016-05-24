@@ -1,0 +1,12 @@
+<section id="<?= $this->key; ?>">
+    <h2 class="pattern-headline"><?= $this->name; ?></h2>
+
+    <?php if (isset($this->contents)): ?>
+
+        <?php foreach ($this->contents as $content): ?>
+            <?= $content; ?>
+        <?php endforeach; ?>
+
+    <?php endif; ?>
+
+</section>

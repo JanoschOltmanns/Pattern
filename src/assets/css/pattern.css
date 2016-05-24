@@ -1,0 +1,9 @@
+.pattern-code-block {
+    width: 100%;
+    overflow: hidden;
+}
+
+.pattern-code-block pre {
+    background: #cecece;
+    padding: 10px;
+}

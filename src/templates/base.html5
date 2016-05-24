@@ -1,0 +1,43 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <?php if (isset($this->cssFiles)): ?>
+        <?php foreach ($this->cssFiles as $cssFile): ?>
+            <link rel="stylesheet" href="<?= $cssFile; ?>">
+        <?php endforeach; ?>
+    <?php endif; ?>
+
+</head>
+<body>
+
+<div id="wrapper">
+
+    <div id="container">
+        <div id="main">
+
+            <?php if (isset($this->sections)): ?>
+                <?php foreach ($this->sections as $section): ?>
+
+                    <?= $section; ?>
+
+                <?php endforeach; ?>
+            <?php endif; ?>
+
+        </div>
+    </div>
+</div>
+
+<?php if (isset($this->jsFiles)): ?>
+    <?php foreach ($this->jsFiles as $jsFile): ?>
+        <script src="<?= $jsFile; ?>"></script>
+    <?php endforeach; ?>
+<?php endif; ?>
+
+</body>
+</html>
