@@ -108,6 +108,7 @@ class Pattern {
                                     $strPatternKey = $this->getPatternIdFromFolder($arrFileInfos['filename']);
 
                                     $patternTemplate->name = $strPatternName;
+                                    $patternTemplate->key = $strPatternKey;
                                     $patternTemplate->image = true;
                                     $patternTemplate->imageSrc = $strSectionFile;
 
