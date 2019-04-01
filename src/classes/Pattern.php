@@ -89,7 +89,7 @@ class Pattern {
                         'key' => $strPatternGroupKey
                     );
 
-                    $arrSectionFiles = glob($strPatternFolder . '/*.html5');
+                    $arrSectionFiles = glob($strPatternFolder . '/*.{html5,png}', GLOB_BRACE);
                     if ($arrSectionFiles)
                     {
                         $arrPatternGroups['navigation'][$index]['items'] = array();
@@ -102,19 +102,37 @@ class Pattern {
 
                                 $patternTemplate = new Template('section');
 
-                                $strPatternName = $this->getSectionNameFromFolder($arrFileInfos['filename']);
-                                $strPatternKey = $this->getPatternIdFromFolder($arrFileInfos['filename']);
-                                $patternTemplate->name = $strPatternName;
-                                $patternTemplate->key = $strPatternKey;
-                                $patternTemplate->src = $strSectionFile;
-                                $patternTemplate->content = file_get_contents($strSectionFile);
+                                if ('.png' == substr($strSectionFile, -4)) {
+                                    // Handling von Platzhalter-Bilder
+                                    $strPatternName = $this->getSectionNameFromFolder($arrFileInfos['filename']);
+                                    $strPatternKey = $this->getPatternIdFromFolder($arrFileInfos['filename']);
 
-                                $arrPatternContents[] = $patternTemplate->parse();
+                                    $patternTemplate->name = $strPatternName;
+                                    $patternTemplate->image = true;
+                                    $patternTemplate->imageSrc = $strSectionFile;
 
-                                $arrPatternGroups['navigation'][$index]['items'][] = array(
-                                    'name' => $strPatternName,
-                                    'key' => $strPatternKey
-                                );
+                                    $arrPatternContents[] = $patternTemplate->parse();
+
+                                    $arrPatternGroups['navigation'][$index]['items'][] = array(
+                                        'name' => $strPatternName,
+                                        'key' => $strPatternKey
+                                    );
+
+                                } else {
+                                    $strPatternName = $this->getSectionNameFromFolder($arrFileInfos['filename']);
+                                    $strPatternKey = $this->getPatternIdFromFolder($arrFileInfos['filename']);
+                                    $patternTemplate->name = $strPatternName;
+                                    $patternTemplate->key = $strPatternKey;
+                                    $patternTemplate->src = $strSectionFile;
+                                    $patternTemplate->content = file_get_contents($strSectionFile);
+
+                                    $arrPatternContents[] = $patternTemplate->parse();
+
+                                    $arrPatternGroups['navigation'][$index]['items'][] = array(
+                                        'name' => $strPatternName,
+                                        'key' => $strPatternKey
+                                    );
+                                }
 
                             }
                         }

@@ -1,4 +1,11 @@
-<section id="<?= $this->key; ?>" data-source="<?= $this->src; ?>">
-    <h3 class="pattern-headline"><?= $this->name; ?></h3>
-    <?= $this->content; ?>
-</section>
+<?php if (isset($this->image)): ?>
+    <section id="<?= $this->key; ?>">
+        <h3 class="pattern-headline"><?= $this->name; ?></h3>
+            <img src="<?= $this->imageSrc; ?>">
+    </section>
+<?php else: ?>
+    <section id="<?= $this->key; ?>" data-source="<?= $this->src; ?>">
+        <h3 class="pattern-headline"><?= $this->name; ?></h3>
+            <?= $this->content; ?>
+    </section>
+<?php endif; ?>
