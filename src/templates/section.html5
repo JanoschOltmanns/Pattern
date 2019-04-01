@@ -1,7 +1,11 @@
 <?php if (isset($this->image)): ?>
     <section id="<?= $this->key; ?>">
         <h3 class="pattern-headline"><?= $this->name; ?></h3>
-            <img src="<?= $this->imageSrc; ?>">
+            <?php if (isset($this->isRetina)): ?>
+                <img src="<?= $this->imageSrc; ?>" width="50%">
+            <?php else: ?>
+                <img src="<?= $this->imageSrc; ?>">
+            <?php endif; ?>
     </section>
 <?php else: ?>
     <section id="<?= $this->key; ?>" data-source="<?= $this->src; ?>">

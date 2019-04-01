@@ -112,6 +112,10 @@ class Pattern {
                                     $patternTemplate->image = true;
                                     $patternTemplate->imageSrc = $strSectionFile;
 
+                                    if (strpos($arrFileInfos['filename'],'@2x')!==false) {
+                                        $patternTemplate->isRetina = true;
+                                    }
+
                                     $arrPatternContents[] = $patternTemplate->parse();
 
                                     $arrPatternGroups['navigation'][$index]['items'][] = array(
@@ -171,6 +175,7 @@ class Pattern {
         preg_match('/^\d*-(.*)$/', $strFolder, $arrMatches);
         if ($arrMatches[1]) {
             $strName = ucwords(str_replace('_', ' ', $arrMatches[1]));
+            $strName = str_replace('@2x', '', $strName);
         }
 
         return $strName;
